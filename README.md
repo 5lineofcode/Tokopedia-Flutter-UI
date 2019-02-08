@@ -1,16 +1,16 @@
-# khadija_ecommerce
+# Tokopedia Flutter UI
+Education purpose only, content may have copyrighted content
 
-A new Flutter project.
+* Logo
+* Icon
+* All Assets on res/images
 
-## Getting Started
+Akhirnya selesai juga Challenge untuk membuat Dashboard Tokopedia. Ada beberapa hal yang ok banget utk di explore di challenge kali ini. Diantaranya:
 
-This project is a starting point for a Flutter application.
+1. Indikator Slider yang sudah di sesuaikan agar mirip dengan tokopedia
+2. Timer promosi, disini saya menggunakan Timer utk mengurangi nilainya 1/detik.
+3. Label Discount, disini cukup menggunakan Stack dan Positioned.
 
-A few resources to get you started if this is your first Flutter project:
+Untuk sisanya, hanya berupa gambar di dalam Container, serta GridView. Ok, ditunggu kritik pedas-nya. :D
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+![alt text](https://i.imgur.com/ud2K4MK.png)
