@@ -11,17 +11,11 @@ class DotsIndicator extends AnimatedWidget {
   }) : super(listenable: controller);
 
   final PageController controller;
-
   final int itemCount;
-
   final ValueChanged<int> onPageSelected;
-
   final Color color;
-
   static const double _kDotSize = 10.0;
-
   static const double _kMaxZoom = 2.0;
-
   static const double _kDotSpacing = 16.0;
 
   Widget _buildDot(int index) {

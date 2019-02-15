@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
-import 'package:tokopedia_dashboard/helper/ui/dotsindicator.dart';
+import 'package:tokopedia_dashboard/helper/flucommerce/slider/image_slider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,115 +9,40 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  final _controller = PageController();
-
-  static const _kDuration = const Duration(milliseconds: 300);
-
-  static const _kCurve = Curves.ease;
-
-  final _kArrowColor = Colors.black.withOpacity(0.8);
-
   DateTime time = DateTime.now();
 
   @override
   void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     Timer(Duration(seconds: 1), () {
       setState(() {
         time = time.add(Duration(seconds: -1));
       });
     });
+    super.initState();
+  }
 
-    final List<Widget> _pages = <Widget>[
-      Container(
-        child: OverflowBox(
-          child: Image(
-            image: AssetImage('assets/images/slider_1.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      Container(
-        child: OverflowBox(
-          child: Image(
-            image: AssetImage('assets/images/slider_2.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      Container(
-        child: OverflowBox(
-          child: Image(
-            image: AssetImage('assets/images/slider_3.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      Container(
-        child: OverflowBox(
-          child: Image(
-            image: AssetImage('assets/images/slider_4.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      Container(
-        child: OverflowBox(
-          child: Image(
-            image: AssetImage('assets/images/slider_5.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
+  @override
+  Widget build(BuildContext context) {
+    var images = [
+      {
+        "image": "assets/images/slider_1.png",
+      },
+      {
+        "image": "assets/images/slider_2.png",
+      },
+      {
+        "image": "assets/images/slider_3.png",
+      },
+      {
+        "image": "assets/images/slider_4.png",
+      },
+      {
+        "image": "assets/images/slider_5.png",
+      },
     ];
 
-    var imageSlider = Container(
-      child: IconTheme(
-        data: IconThemeData(color: _kArrowColor),
-        child: Container(
-          height: 150.0,
-          width: MediaQuery.of(context).size.width,
-          child: Stack(
-            children: <Widget>[
-              PageView.builder(
-                physics: AlwaysScrollableScrollPhysics(),
-                controller: _controller,
-                itemCount: _pages.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return _pages[index % _pages.length];
-                },
-              ),
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                child: Container(
-                  padding: const EdgeInsets.only(
-                    left: 10.0,
-                    right: 10.0,
-                    bottom: 5.0,
-                    top: 5.0,
-                  ),
-                  child: DotsIndicator(
-                    controller: _controller,
-                    itemCount: _pages.length,
-                    onPageSelected: (int page) {
-                      _controller.animateToPage(
-                        page,
-                        duration: _kDuration,
-                        curve: _kCurve,
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+    var imageSlider = ImageSlider(
+      images: images,
     );
 
     var menuItems = [
@@ -355,13 +280,13 @@ class HomePageState extends State<HomePage> {
                                 ),
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.red[100],
-                                border: Border.all(
-                                  color: Colors.red,
-                                  width: 2.0,
-                                ),
-                                borderRadius: BorderRadius.all(Radius.circular(12.0))
-                              ),
+                                  color: Colors.red[100],
+                                  border: Border.all(
+                                    color: Colors.red,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12.0))),
                             ),
                           ),
                         ],
